@@ -5,6 +5,8 @@
 
 A readable stream implementation for reading large files from Expo FileSystem with progress tracking. Designed to handle large files without causing out-of-memory errors in React Native Expo apps.
 
+Refactored from old version of [TidGi-Mobile](https://github.com/tiddly-gittly/TidGi-Mobile/) at <https://github.com/tiddly-gittly/TidGi-Mobile/blob/e121fab04e0279d954c21c797f4023212b2ece33/src/services/ImportService/ExpoReadStream.ts>
+
 ## Features
 
 - 📦 **Stream-based reading**: Read large files chunk-by-chunk without loading entire file into memory
@@ -148,6 +150,7 @@ function FileReader() {
 Creates a new readable stream for the specified file.
 
 **Parameters:**
+
 - `fileUri` (string): The file:// URI to read from
 - `options` (ExpoReadStreamOptions, optional): Configuration options
 
@@ -203,11 +206,13 @@ Get current read position in bytes.
 Emitted after each chunk is read successfully.
 
 **Callback signature:**
+
 ```typescript
 (progress: number, event: ProgressEvent) => void
 ```
 
 **ProgressEvent:**
+
 ```typescript
 interface ProgressEvent {
   progress: number;    // Progress ratio between 0 and 1
@@ -221,6 +226,7 @@ interface ProgressEvent {
 Emitted when an error occurs during reading.
 
 **Callback signature:**
+
 ```typescript
 (error: Error) => void
 ```
@@ -244,6 +250,7 @@ The default chunk size is 5MB, which is 1/20 of the typical React Native memory 
 - **UI responsiveness**: Smaller chunks = more frequent progress updates, less UI freezing
 
 Adjust `chunkSize` based on your needs:
+
 - **Small files (<50MB)**: Use default 5MB or increase to 10MB
 - **Large files (>100MB)**: Keep default 5MB or reduce to 2-3MB if memory is tight
 - **Background processing**: Can use larger chunks (10-20MB) if UI responsiveness is not critical
@@ -251,6 +258,7 @@ Adjust `chunkSize` based on your needs:
 ### Memory Safety
 
 React Native apps typically crash when memory usage exceeds ~110MB. This package helps by:
+
 1. Reading files in small chunks instead of loading entire file
 2. Allowing backpressure (stream automatically pauses if downstream is slow)
 3. Cleaning up chunks after they're consumed
