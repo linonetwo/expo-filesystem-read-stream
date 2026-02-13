@@ -1,0 +1,56 @@
+{
+  "name": "expo-filesystem-read-stream",
+  "version": "1.0.0",
+  "description": "A readable stream for reading large files from Expo FileSystem with progress tracking and memory-safe chunk-based reading",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "expo",
+    "expo-file-system",
+    "filesystem",
+    "stream",
+    "read",
+    "readable",
+    "readable-stream",
+    "large-file",
+    "progress",
+    "react-native",
+    "memory-safe",
+    "chunk"
+  ],
+  "author": "linonetwo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tiddly-gittly/expo-filesystem-read-stream.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tiddly-gittly/expo-filesystem-read-stream/issues"
+  },
+  "homepage": "https://github.com/tiddly-gittly/expo-filesystem-read-stream#readme",
+  "dependencies": {
+    "buffer": "^6.0.3",
+    "readable-stream": "^4.5.2"
+  },
+  "peerDependencies": {
+    "expo-file-system": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "@types/readable-stream": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
